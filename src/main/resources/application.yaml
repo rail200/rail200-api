@@ -1,0 +1,26 @@
+server:
+  port: 9000
+
+spring:
+
+  application:
+    name: rail200
+
+  datasource:
+    url: jdbc:postgresql://161.35.25.129:5432/rail200_db
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+logging:
+  level:
+    root: DEBUG
+
