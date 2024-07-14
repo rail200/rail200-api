@@ -1,5 +1,8 @@
 pipeline {
   agent any
+
+  def appBuild;
+
   stages {
     stage('Pull code') {
       steps {
@@ -10,9 +13,8 @@ pipeline {
     stage('Build Docker image') {
       steps {
         script {
-          docker.build("rail200", ".")
+          appBuild = docker.build("rail200/rail200-api")
         }
-
       }
     }
 
@@ -21,7 +23,7 @@ pipeline {
         script {
           docker.withRegistry("https://hub.docker.com") {
             // Push Docker image to Docker Hub
-            docker.image("${DOCKER_HUB_REPO}:${BUILD_NUMBER}").push()
+            appBuild.push("${BUILD_NUMBER}")
           }
         }
 
