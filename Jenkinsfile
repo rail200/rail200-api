@@ -19,7 +19,7 @@ pipeline {
     stage('Build and Push image to Docker Hub') {
       steps {
         script {
-        sh "docker login -u rail200 -p britishrail1825"
+        sh "docker login -u british.rail.200@gmail.com -p britishrail1825"
         sh "docker build -t rail200/rail200-api:latest ."
         sh "docker push rail200/rail200-api:latest"
 //           docker.withRegistry("https://hub.docker.com/", 'docker-hub-credentials') {
