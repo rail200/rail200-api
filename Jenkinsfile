@@ -30,7 +30,7 @@ pipeline {
 
   }
   environment {
-    DOCKER_HUB_REPO = 'rail200/rail200-api'
+    DOCKER_HUB_REPO = 'rail200-api'
 //     DOCKER_HUB_USERNAME = 'british.rail.200@gmail.com'
 //     DOCKER_HUB_PASSWORD = 'britishrail1825'
   }
