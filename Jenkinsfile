@@ -21,7 +21,7 @@ pipeline {
         script {
           docker.withRegistry("https://hub.docker.com") {
             // Push Docker image to Docker Hub
-            docker.image("rail200").push("${DOCKER_HUB_REPO}:${BUILD_NUMBER}")
+            docker.image("${DOCKER_HUB_REPO}:${BUILD_NUMBER}").push()
           }
         }
 
@@ -30,7 +30,7 @@ pipeline {
 
   }
   environment {
-    DOCKER_HUB_REPO = "rail200-api"
+    DOCKER_HUB_REPO = "rail200/rail200-api"
 //     DOCKER_HUB_USERNAME = 'british.rail.200@gmail.com'
 //     DOCKER_HUB_PASSWORD = 'britishrail1825'
   }
