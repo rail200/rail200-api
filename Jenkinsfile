@@ -21,7 +21,7 @@ pipeline {
         script {
           docker.withRegistry("https://hub.docker.com") {
             // Push Docker image to Docker Hub
-            docker.build("rail200/rail200-api").push("${BUILD_NUMBER}")
+            docker.build("/repository/docker/rail200/rail200-api").push("${BUILD_NUMBER}")
           }
         }
       }
