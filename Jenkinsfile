@@ -8,24 +8,20 @@ pipeline {
       }
     }
 
-    node {
-      def appBuild;
+//     stage('Build Docker image') {
+//       steps {
+//         script {
+//           appBuild = docker.build("rail200/rail200-api")
+//         }
+//       }
+//     }
 
-      stage('Build Docker image') {
-        steps {
-          script {
-            appBuild = docker.build("rail200/rail200-api")
-          }
-        }
-      }
-
-      stage('Push to Docker Hub') {
-        steps {
-          script {
-            docker.withRegistry("https://hub.docker.com") {
-              // Push Docker image to Docker Hub
-              appBuild.push("${BUILD_NUMBER}")
-            }
+    stage('Push to Docker Hub') {
+      steps {
+        script {
+          docker.withRegistry("https://hub.docker.com") {
+            // Push Docker image to Docker Hub
+            docker.build("rail200/rail200-api").push("${BUILD_NUMBER}")
           }
         }
       }
