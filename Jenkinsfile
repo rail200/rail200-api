@@ -19,7 +19,7 @@ pipeline {
     stage('Push to Docker Hub') {
       steps {
         script {
-          docker.withRegistry('https://registry.hub.docker.com', DOCKER_HUB_USERNAME, DOCKER_HUB_PASSWORD) {
+          docker.withRegistry('https://hub.docker.com', DOCKER_HUB_USERNAME, DOCKER_HUB_PASSWORD) {
             // Push Docker image to Docker Hub
             docker.image("rail200").push("${DOCKER_HUB_REPO}:${BUILD_NUMBER}")
           }
