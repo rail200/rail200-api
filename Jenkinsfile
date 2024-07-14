@@ -19,10 +19,12 @@ pipeline {
     stage('Build and Push image to Docker Hub') {
       steps {
         script {
-          docker.withRegistry("https://hub.docker.com/", 'docker-hub-credentials') {
-            // Push Docker image to Docker Hub
-            docker.build("${DOCKER_HUB_REPO}:${BUILD_NUMBER}").push()
-          }
+        sh "docker build -t rail200/rail200-api:latest ."
+        sh "docker push rail200/rail200-api:latest"
+//           docker.withRegistry("https://hub.docker.com/", 'docker-hub-credentials') {
+//             // Push Docker image to Docker Hub
+//             docker.build("${DOCKER_HUB_REPO}:${BUILD_NUMBER}").push()
+//           }
         }
       }
     }
