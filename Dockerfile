@@ -1,7 +1,5 @@
 # Use an official Maven image as the base image
 FROM maven:3.8.4-openjdk-11-slim AS build
-# Setting jdk 21
-FROM openjdk:21-jdk
 
 # Set the working directory in the container
 WORKDIR /app
@@ -12,6 +10,11 @@ COPY src ./src
 
 # Executing maven build
 RUN mvn clean package
+
+# Setting jdk 21
+FROM openjdk:21-jdk
+
+WORKDIR /app
 
 EXPOSE 9000
 
