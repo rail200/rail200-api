@@ -21,7 +21,7 @@ pipeline {
         script {
           docker.withRegistry("", 'docker-hub-credentials') {
             // Push Docker image to Docker Hub
-            APP_IMAGE.build("${DOCKER_HUB_REPO}:${BUILD_NUMBER}").push()
+            APP_IMAGE.push()
           }
         }
       }
