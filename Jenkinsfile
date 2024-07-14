@@ -19,7 +19,7 @@ pipeline {
     stage('Build and Push image to Docker Hub') {
       steps {
         script {
-          docker.withRegistry("", 'docker-hub-credentials') {
+          docker.withRegistry("https://hub.docker.com/", 'docker-hub-credentials') {
             // Push Docker image to Docker Hub
             docker.build("${DOCKER_HUB_REPO}:${BUILD_NUMBER}").push()
           }
