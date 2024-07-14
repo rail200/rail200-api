@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   stages {
-    stage('Pull code') {
+    stage('Pull code from GitHub') {
       steps {
         git(url: 'https://github.com/rail200/rail200-api', branch: 'develop')
       }
@@ -16,12 +16,12 @@ pipeline {
 //       }
 //     }
 
-    stage('Push to Docker Hub') {
+    stage('Build and Push image to Docker Hub') {
       steps {
         script {
-          docker.withRegistry("https://hub.docker.com") {
+          docker.withRegistry("") {
             // Push Docker image to Docker Hub
-            docker.build("/repository/docker/rail200/rail200-api").push("${BUILD_NUMBER}")
+            docker.build("${DOCKER_HUB_REPO}:${BUILD_NUMBER}").push()
           }
         }
       }
