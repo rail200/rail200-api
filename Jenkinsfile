@@ -29,7 +29,8 @@ pipeline {
 
     stage("Run Docker image") {
       steps {
-        sh "docker stop rail200"
+        sh "docker stop rail200 || true"
+        sh "docker rm rail200 || true"
         sh "docker run -d --name rail200 -rm -p 9000:9000 rail200/rail200-api:latest"
 //         script {
 //           APP_IMAGE.withRun("-d -p 9000:9000")
