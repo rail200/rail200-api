@@ -1,12 +1,9 @@
 pipeline {
   agent any
-  environment {
-    GIT_CREDENTIALS_ID = 'github-access-token'
-  }
   stages {
     stage('Pull code') {
       steps {
-        git url: 'https://github.com/rail200/rail200-api', branch: 'develop', credentialsId: "${GIT_CREDENTIALS_ID}"
+        git url: 'https://github.com/rail200/rail200-api', branch: 'develop'
       }
     }
   }
