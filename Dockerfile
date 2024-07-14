@@ -15,5 +15,8 @@ RUN mvn clean package
 
 EXPOSE 9000
 
+# Copy the built JAR file from the previous stage to the container
+COPY --from=build /app/target/rail200-0.0.1-SNAPSHOT.jar .
+
 # Run the app
-CMD ["java", "-jar", "target/rail200-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "rail200-0.0.1-SNAPSHOT.jar"]
