@@ -10,7 +10,7 @@ public class DummyController {
     // GitHub webhook test commit
     @GetMapping("/dummy")
     public ResponseEntity<String> dummy() {
-        return ResponseEntity.ok("Hello Rail200.");
+        return ResponseEntity.ok("Hello Rail200!");
     }
 
 }
