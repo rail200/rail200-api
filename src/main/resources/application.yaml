@@ -9,7 +9,7 @@ spring:
   datasource:
     url: jdbc:postgresql://161.35.25.129:5432/rail200_db
     username: postgres
-    password: postgres
+    password: 22043006
     driver-class-name: org.postgresql.Driver
 
   jpa:
