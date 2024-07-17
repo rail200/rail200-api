@@ -11,7 +11,6 @@ COPY src ./src
 # Executing maven build
 RUN --mount=type=cache,target=/root/.m2 mvn clean package
 
-
 # Setting jdk 21
 FROM openjdk:21-jdk
 
