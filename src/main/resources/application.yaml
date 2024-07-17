@@ -2,9 +2,8 @@ server:
   port: 9000
 
 spring:
-
   application:
-    name: rail200
+    name: rail200-service
 
   datasource:
     url: jdbc:postgresql://161.35.25.129:5432/rail200_db
