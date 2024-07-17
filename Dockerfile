@@ -9,7 +9,7 @@ COPY pom.xml .
 COPY src ./src
 
 # Executing maven build
-RUN mvn clean package
+RUN --mount=type=cache, target=/root/.m2 mvn -f $HOME/pom.xml clean package
 
 # Setting jdk 21
 FROM openjdk:21-jdk
